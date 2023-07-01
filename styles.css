@@ -1,0 +1,141 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#focalPointDebugElement {
+  display: block;
+  font-family: Roboto, sans-serif;
+  font-size: 12px;
+}
+
+#bulls-eye {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid gray;
+  z-index: 98;
+  pointer-events: none;
+  display: flex; /* or inline-flex */
+  align-items: center; 
+  justify-content: center;
+  font-size: 31px;
+  font-weight: 700;
+  color: gray;
+}
+
+#focal-point {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid gray;
+  z-index: 99;
+  pointer-events: none;
+  display: flex; /* or inline-flex */
+  align-items: center; 
+  justify-content: center;
+  font-size: 31px;
+  font-weight: 700;
+  color: gray;
+}
+
+#main-container {
+  display: flex;
+  height: 100%;
+}
+
+#canvas-container {
+  flex: 1;
+  height: 100%;
+  overflow-y: scroll; 
+  overscroll-behavior: contain;
+  -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  background-color: black;
+}
+
+#canvas-container::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+}
+
+#canvas {
+  position: relative;
+  height: fit-content;
+}
+
+#bottom-gradient {
+  position: absolute;
+  width: 100%;
+  height: 1000px;
+  bottom: 0px;
+  background: linear-gradient(to top, midnightblue, black);
+  pointer-events: none;
+}
+
+#top-gradient {
+  position: absolute;
+  width: 100%;
+  height: 1000px;
+  top: 0px;
+  background: linear-gradient(to bottom, midnightblue, black);
+  pointer-events: none;
+}
+
+
+.scrollable-div {
+  overflow-y: auto;
+  padding-bottom:20px;
+}
+
+
+#right-column {
+  flex: 1;
+  height: 100%;
+  position: relative;
+  background-color: #dddddd;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+#right-header-div {
+  height: 100px;
+  background-color: #444444;
+  color: white;
+  padding: 10px;
+  align-content: left;
+}
+
+.intro, .user, .footnote{
+  font-family: "Roboto", sans-serif;
+  color: white;
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.user {
+  font-weight: 900;
+  font-size: 20px;
+}
+.footnote {
+  font-size: 10px;
+}
+
+#right-content-div {
+  flex: 1;
+  overflow-y: auto;
+  background-color: #dddddd;
+  color: black;
+  padding: 10px;
+}
+
+#right-footer-div {
+  height: 100px;
+  background-color: #999999;
+  padding: 10px;
+}
+
