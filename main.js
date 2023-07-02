@@ -99,6 +99,8 @@ function debugFocalPoint() {
     html += `focalPoint:[${focalPointX},${focalPointY}]<br/>`;
     if ( mouseX && mouseY )
         html += `mouse:[${mouseX},${mouseY}]<br/>`;
+    var time = (new Date()).getTime();
+    html += `time:${time}`;
     debugFocalPointElement.innerHTML = html;
 }
 
@@ -135,6 +137,7 @@ function handleWindowResize() {
     canvas.style.width = canvasContainerWidth + "px";
     positionGradients();
     centerBullsEye();
+    easeFocalPointToBullsEye();
 }
 
 //---------------------------------------------------------
