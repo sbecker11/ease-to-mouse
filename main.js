@@ -38,8 +38,8 @@ function handleMouseLeaveCanvasContainer(event) {
 // move bullsEye to the canvasContainer-relative dead center
 
 function centerBullsEye() {
-    var left = canvasContainer.offsetWidth/2 - bullsEye.offsetWidth/2;
-    var top = canvasContainer.offsetHeight/2 - bullsEye.offsetHeight/2;
+    var left = Math.floor(canvasContainer.offsetWidth/2 - bullsEye.offsetWidth/2);
+    var top = Math.floor(canvasContainer.offsetHeight/2 - bullsEye.offsetHeight/2);
     bullsEye.style.top = `${top}px`;
     bullsEye.style.left = `${left}px`;
 }
@@ -48,8 +48,8 @@ function centerBullsEye() {
 // returns the canvasContainer-relative location of the bullsEye
 
 function getBullsEye() {
-    var bullsEyeX = canvasContainer.offsetWidth / 2;
-    var bullsEyeY = canvasContainer.offsetHeight / 2;
+    var bullsEyeX = Math.floor(canvasContainer.offsetWidth / 2);
+    var bullsEyeY = Math.floor(canvasContainer.offsetHeight / 2);
     return { bullsEyeX, bullsEyeY };
 }
 
@@ -115,6 +115,12 @@ function handleWindowLoad() {
     centerBullsEye();
     focalPoint.createFocalPoint(canvasContainer, focal_point, focalPointListener);
     easeFocalPointToBullsEye();
+
+    // set up animation loop
+    (function drawFrame() {
+        window.requestAnimationFrame(drawFrame);
+        focalPoint.drawFocalPointAnimationFrame();
+    })();
 }
 
 // ----------------------------------------------
@@ -185,8 +191,3 @@ addcanvasContainerEventListener("load", handlecanvasContainerMouseMove);
 addcanvasContainerEventListener('mouseenter', handleMouseEnterCanvasContainer);
 
 addcanvasContainerEventListener('mouseleave', handleMouseLeaveCanvasContainer);
-
-
-
-
-
